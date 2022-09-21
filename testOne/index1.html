@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <script>
+    for (let i = 0; i < 100000; i ++) {
+      // console.log(1);
+    }
+    /**
+     * css不会阻塞html解析
+        但js会阻塞dom解析，需要暂停dom解析去执行js（关键词：阻塞解析过程）
+        js可能会操作样式，所以需要等待样式加载完成
+     */
+  </script>
+  
+  <div class="box"></div>
+</body>
+
+</html>
