@@ -1,3 +1,7 @@
 /webpack/node_modules
 /webpack/package-lock.json
 /webpack/dist
+
+/testTwo/node_modules
+/testTwo/package-lock.json
+/testTwo/dist
