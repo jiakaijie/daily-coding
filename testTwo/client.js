@@ -30,6 +30,7 @@ class HTTPRequest {
         socket.write(data); // socket发送
       })
       socket.on('data', (chunkBuf) => { // 监听数据返回buffer数据流 tcp一段一段的数据块
+        // 所以要一段一段处理进行合成
         console.log(chunkBuf.toString());
       })
     })
