@@ -1,20 +1,137 @@
 // 输出结果
 // 1.异步&事件循环
-Promise.resolve().then(() => {
-  console.log('1'); // 
-  throw 'Error';
-}).then(() => {
-  console.log('2');
-}).catch(() => {
-  console.log('3'); // 
-  throw 'Error';
-}).then(() => {
-  console.log('4');
-}).catch(() => {
-  console.log('5'); // 
-}).then(() => {
-  console.log('6'); // 
-});
+// const promise = new Promise((resolve, reject) => {
+//   console.log(1);
+//   console.log(2);
+// });
+// promise.then(() => {
+//   console.log(3);
+// });
+// console.log(4);
+
+// const promise1 = new Promise((resolve, reject) => {
+//   console.log('promise1')
+//   resolve('resolve1')
+// })
+// const promise2 = promise1.then(res => {
+//   console.log(res)
+// })
+// console.log('1', promise1);
+// console.log('2', promise2);
+// // promise1 （1 promise对象） (2 promise对象) resolve1
+
+// const promise = new Promise((resolve, reject) => {
+//   console.log(1);
+//   setTimeout(() => {
+//     console.log("timerStart");
+//     resolve("success");
+//     console.log("timerEnd");
+//   }, 0);
+//   console.log(2);
+// });
+// promise.then((res) => {
+//   console.log(res);
+// });
+// console.log(4);
+// // 1 2 4 timerStart timerEnd success
+
+// Promise.resolve().then(() => {
+//   console.log('promise1');
+//   const timer2 = setTimeout(() => {
+//     console.log('timer2')
+//   }, 0)
+// });
+// const timer1 = setTimeout(() => {
+//   console.log('timer1')
+//   Promise.resolve().then(() => {
+//     console.log('promise2')
+//   })
+// }, 0)
+// console.log('start');
+// // start promise1 timer1 promise2 timer2
+
+// const promise = new Promise((resolve, reject) => {
+//   resolve('success1');
+//   reject('error');
+//   resolve('success2');
+// });
+// promise.then((res) => {
+//   console.log('then:', res);
+// }).catch((err) => {
+//   console.log('catch:', err);
+// })
+// // then success1
+
+// Promise.resolve(1)
+//   .then(2)
+//   .then(Promise.resolve(3))
+//   .then(console.log)
+// 1
+
+// Promise.resolve(1)
+//   .then(2)
+//   .then(console.log)
+//   .then(console.log)
+
+// const promise1 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve('success')
+//   }, 1000)
+// })
+// const promise2 = promise1.then(() => {
+//   throw new Error('error!!!')
+// })
+// console.log('promise1', promise1)
+// console.log('promise2', promise2)
+// setTimeout(() => {
+//   console.log('promise1', promise1)
+//   console.log('promise2', promise2)
+// }, 2000)
+// // (promise1 pendding) (promise2 pendding) (promise1 resolved) (promise2 reject) 
+
+// Promise.resolve(1)
+//   .then(res => {
+//     console.log(res);
+//     return 2;
+//   })
+//   .catch(err => {
+//     return 3;
+//   })
+//   .then(res => {
+//     console.log(res);
+//   });
+// // 1 2
+
+// Promise.resolve().then(() => {
+//   return new Error('error!!!')
+// }).then(res => {
+//   console.log("then: ", res)
+// }).catch(err => {
+//   console.log("catch: ", err)
+// })
+// // then error
+
+// const promise = Promise.resolve().then(() => {
+//   return promise;
+// })
+// promise.catch(console.err)
+// // promise本身不能返回本身
+
+// Promise.resolve().then(() => {
+//   console.log('1'); // 
+//   throw 'Error';
+// }).then(() => {
+//   console.log('2');
+// }).catch(() => {
+//   console.log('3'); // 
+//   throw 'Error';
+// }).then(() => {
+//   console.log('4');
+// }).catch(() => {
+//   console.log('5'); // 
+// }).then(() => {
+//   console.log('6'); // 
+// });
 
 
 
