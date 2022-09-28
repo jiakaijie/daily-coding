@@ -191,20 +191,124 @@
 // }
 // obj.fun() // cuggz
 // new obj.fun() // undefined
-// 4
 
+// var obj = {
+//   say: function () {
+//     var f1 = () => {
+//       console.log("1111", this);
+//     }
+//     f1();
+//   },
+//   pro: {
+//     getPro: () => {
+//       console.log(this);
+//     }
+//   }
+// }
+// var o = obj.say;
+// o();
+// obj.say();
+// obj.pro.getPro();
 
+// // （111 window） (111 obj) (window)
 
+// var myObject = {
+//   foo: "bar",
+//   func: function () {
+//     var self = this;
+//     console.log(this.foo);
+//     console.log(self.foo);
+//     (function () {
+//       console.log(this.foo);
+//       console.log(self.foo);
+//     }());
+//   }
+// };
+// myObject.func();
+// // bar bar undefined bar
 
+// window.number = 2;
+// var obj = {
+//   number: 3,
+//   db1: (function () {
+//     console.log(this);
+//     this.number *= 4;
+//     return function () {
+//       console.log(this);
+//       this.number *= 5;
+//     }
+//   })()
+// }
+// var db1 = obj.db1;
+// db1();
+// obj.db1();
+// console.log(obj.number);
+// console.log(window.number);
 
+// // window.number = 40 obj.number = 15
+// // window window obj 15 40
 
+// var length = 10;
+// function fn() {
+//   console.log(this.length);
+// }
+// var obj = {
+//   length: 5,
+//   method: function (fn) {
+//     fn();
+//     arguments[0]();
+//   }
+// };
+// obj.method(fn, 1);
+// // 10 2
 
+// var x = 3;
+// var y = 4;
+// var obj = {
+//   x: 1,
+//   y: 6,
+//   getX: function () {
+//     var x = 5;
+//     return function () {
+//       return this.x;
+//     }();
+//   },
+//   getY: function () {
+//     var y = 7;
+//     return this.y;
+//   }
+// }
+// console.log(obj.getX())
+// console.log(obj.getY())
+// // 3 6
 
+// // call 参数传null、undefined的话就会指向window
+// var a = 10;
+// var obt = {
+//   a: 20,
+//   fn: function () {
+//     var a = 30;
+//     console.log(this);
+//     console.log(this.a)
+//   }
+// }
+// obt.fn();
+// obt.fn.call();
+// (obt.fn)();
+// // 20 10 20
 
+function a(xx) {
+  this.x = xx;
+  return this
+};
+const x = 123;
+// var y = a(6);
 
-
-
-
+console.log(x.x)
+console.log(x);
+console.log(window.x)
+// console.log(y.x)
+// undefined 6
 
 
 

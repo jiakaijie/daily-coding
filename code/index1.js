@@ -103,12 +103,59 @@
 // }
 // console.log(arr)
 
-var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-console.log(arr.length)
-for (var i = 0; i < arr.length; i++) {
-  const randomIndex = Math.round(Math.random() * (arr.length - 1 - i)) + i;
-  console.log(Math.random() * (arr.length - 1 - i))
-  console.log(Math.round(Math.random() * (arr.length - 1 - i)) )
-  // [arr[i], arr[randomIndex]] = [arr[randomIndex], arr[i]];
-}
-// console.log(arr)
+// var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// console.log(arr.length)
+// for (var i = 0; i < arr.length; i++) {
+//   const randomIndex = Math.round(Math.random() * (arr.length - 1 - i)) + i;
+//   console.log(Math.random() * (arr.length - 1 - i))
+//   console.log(Math.round(Math.random() * (arr.length - 1 - i)))
+//   // [arr[i], arr[randomIndex]] = [arr[randomIndex], arr[i]];
+// }
+// // console.log(arr)
+
+
+
+// [0, 7, 0, 0, 6, 6, 3, 0, 1, 2, 3]
+// 0 0  0 0 7 6 3 
+
+// const getNewArr1 = () => {
+//   const arr = [0, 7, 0, 0, 6, 6, 3, 0, 1, 2, 3];
+//   let myIndex = 0;
+//   for (let i = 0; i < arr.length; i ++) {
+//     const item = arr[i];
+//     if (item === 0) {
+//       const tem = item;
+//       arr[i] = arr[myIndex];
+//       arr[myIndex] = tem;
+//       myIndex = i;
+//     } else {
+//       if (arr[myIndex] === 0) {
+//         myIndex = i;
+//       }
+//     }
+//   }
+//   return arr;
+// }
+// const arr1 = getNewArr1();
+
+
+// const getNewArr = () => {
+//   const arr = [0, 7, 0, 0, 6, 6, 3, 0, 1, 2, 3];
+//   const firstArr = [];
+//   const secondArr = [];
+
+//   for (let i = 0; i < arr.length; i ++) {
+//     const item = arr[i];
+//     if (item === 0) {
+//       firstArr.push(item);
+//     } else {
+//       secondArr.push(item);
+//     }
+//   }
+//   return firstArr.concat(secondArr);
+// }
+// const arr = getNewArr()
+
+var a = [];
+if (a) { console.log(1) }
+else { console.log(2) }
