@@ -144,6 +144,12 @@
 
 
 
+
+
+
+
+
+
 // 2.this 指向
 // function foo() {
 //   console.log(this.a);
@@ -297,18 +303,83 @@
 // (obt.fn)();
 // // 20 10 20
 
-function a(xx) {
-  this.x = xx;
-  return this
-};
-const x = 123;
+// function a(xx){
+//   this.x = xx;
+//   return this
+// };
+// var x = a(5);
 // var y = a(6);
 
-console.log(x.x)
-console.log(x);
-console.log(window.x)
-// console.log(y.x)
-// undefined 6
+// console.log(x.x)  // undefined
+// console.log(y.x)  // 6
+
+// function foo(something) {
+//   this.a = something
+// }
+
+// var obj1 = {
+//   foo: foo
+// }
+
+// var obj2 = {}
+
+// obj1.foo(2);
+// console.log(obj1.a);
+
+// obj1.foo.call(obj2, 3);
+// console.log(obj2.a);
+
+// var bar = new obj1.foo(4)
+// console.log(obj1.a);
+// console.log(bar.a);
+// // obj1 上 a = 2  obj2 上 a = 3
+// // 2 3 2 4
+
+// function foo(something) {
+//   this.a = something
+// }
+
+// var obj1 = {}
+
+// var bar = foo.bind(obj1);
+// bar(2);
+// console.log(obj1.a);
+
+// var baz = new bar(3);
+// console.log(obj1.a);
+// console.log(baz.a);
+// // obj1 a = 2
+// // 2 2 3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -477,6 +548,9 @@ console.log(window.x)
 
 
 
+
+
+
 // 4.原型&继承
 
 // function Person(name) {
@@ -562,4 +636,147 @@ console.log(window.x)
 // obj.a(); // 2
 // Foo.a(); // 1
 
-// 4.
+// function Dog() {
+//   this.name = 'puppy'
+// }
+// Dog.prototype.bark = () => {
+//   console.log('woof!woof!')
+// }
+// const dog = new Dog()
+// console.log(Dog.prototype.constructor === Dog && dog.constructor === Dog && dog instanceof Dog)
+
+// var A = { n: 4399 };
+// var B = function () { this.n = 9999 };
+// var C = function () { var n = 8888 };
+// B.prototype = A;
+// C.prototype = A;
+// var b = new B();
+// var c = new C();
+// A.n++
+// console.log(b.n);
+// console.log(c.n);
+
+// function A() {
+// }
+// function B(a) {
+//   this.a = a;
+// }
+// function C(a) {
+//   if (a) {
+//     this.a = a;
+//   }
+// }
+// A.prototype.a = 1;
+// B.prototype.a = 1;
+// C.prototype.a = 1;
+
+// console.log(new A().a);
+// console.log(new B().a);
+// console.log(new C(2).a);
+
+
+// function Parent() {
+//   this.a = 1;
+//   this.b = [1, 2, this.a];
+//   this.c = { demo: 5 };
+//   this.show = function () {
+//     console.log(this.a, this.b, this.c.demo);
+//   }
+// }
+
+// function Child() {
+//   this.a = 2;
+//   this.change = function () {
+//     this.b.push(this.a);
+//     this.a = this.b.length;
+//     this.c.demo = this.a++;
+//   }
+// }
+
+// Child.prototype = new Parent();
+// var parent = new Parent();
+// var child1 = new Child();
+// var child2 = new Child();
+// child1.a = 11;
+// child2.a = 12;
+// parent.show();
+// child1.show();
+// child2.show();
+// child1.change();
+// child2.change();
+// parent.show();
+// child1.show();
+// child2.show();
+
+// /**
+//  * 
+//  * parent
+//  * a: 1
+//  * b: [1, 2, this.a],
+//  * c: {demo: 5}
+//  * show: ()
+//  * 
+//  * 
+//  * child parent
+//  * a: 1
+//  * b: [1, 2, 1, 11, 12],
+//  * c: {demo: 5}
+//  * show: ()
+//  * 
+//  * child1
+//  * a: 5,
+//  * change: ()
+//  * 
+//  * child2
+//  * a: 6
+//  * change: ()
+//  * 
+//  * 
+//  */
+
+// /**
+//  * 1, [1, 2, 1] 5
+//  * 11, [1, 2, 1] 5
+//  * 12, [1, 2, 1] 5
+//  * 1, [1, 2, 1] 5
+//  * 5, [1, 2, 1, 11, 12] 5
+//  */
+
+
+// function SuperType() {
+//   this.property = true;
+// }
+
+// SuperType.prototype.getSuperValue = function () {
+//   return this.property;
+// };
+
+// function SubType() {
+//   this.subproperty = false;
+// }
+
+// SubType.prototype = new SuperType();
+// SubType.prototype.getSubValue = function () {
+//   return this.subproperty;
+// };
+
+// var instance = new SubType();
+// console.log(instance.getSuperValue());
+
+// /**
+//  * instance
+//  * 
+//  * subproperty = false
+//  * 
+//  * __proto__ = {
+//  *  property = true
+//  *  getSubValue: function () return this.subproperty
+//  *  __proto__ = {
+//  *    getSuperValue: function () return this.property;
+//  *  }
+//  * }
+//  */
+
+// /**
+//  * true
+//  */

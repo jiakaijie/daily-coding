@@ -156,6 +156,38 @@
 // }
 // const arr = getNewArr()
 
-var a = [];
-if (a) { console.log(1) }
-else { console.log(2) }
+// var a = [];
+// if (a) { console.log(1) }
+// else { console.log(2) }
+
+
+
+
+const nums = [-1, 0, 3, 5, 9, 12], target = 9
+
+var search = function (nums, target) {
+  let index = -1;
+  let leftIndex = 0;
+  let rightIndex = arr.length - 1;
+  const midIndex = Math.floor(nums.length / 2);
+  const midVal = nums[midIndex];
+  if (midVal === target) {
+    return 
+  }
+  if (midVal > target) {
+
+  } else if (midVal < target) {
+
+  } else {
+    
+  }
+  for (let i = 0; i < nums.length; i++) {
+    if (target === nums[i]) {
+      index = i;
+      break;
+    }
+  }
+  return index;
+};
+
+search(nums, target);
