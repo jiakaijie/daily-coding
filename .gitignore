@@ -5,3 +5,6 @@
 /testTwo/node_modules
 /testTwo/package-lock.json
 /testTwo/dist
+
+/myPnpmNest/node_modules
+/myPnpmNest/dist
